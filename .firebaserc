@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "vehicle-society": {
+      "hosting": {
+        "firebase-dashboard": [
+          "vehicle-society"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "vehicle-society"
+  }
+}
