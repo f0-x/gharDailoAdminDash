@@ -15,12 +15,6 @@ import {
   updateDoc,
 } from "@angular/fire/firestore";
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json",
-  }),
-};
-
 @Injectable({
   providedIn: "root",
 })
@@ -52,15 +46,15 @@ export class UserService{
     //             this.materialsFiltered[i]
     //           );
     
-    // Gets the new quantity of the material and updates the result to the firebase (OldQ - NewQ)
+    // Gets the new balance of the user and updates the result to the firebase (OldB - NewB)
     updateUserFromFirebase(user:User,newUser: User) {
       
       const userDocRef = doc(this.firestore, `users/${user.id}`);
-      return updateDoc(userDocRef, { status: user.balance - newUser.balance});
+      return updateDoc(userDocRef, { balance: user.balance - newUser.balance});
     }
     
     //////////////////////////////////////////////////////////////////////////////////////  
-    editUserFromFirebBase(user:User) {
+    editUserFromFirebase(user:User) {
       const userDocRef = doc(this.firestore, `users/${user.id}`);
       return updateDoc(userDocRef, { status:user.status,role: user.role, balance: user.balance})
     }

@@ -8,7 +8,7 @@ export class UserSearchPipe implements PipeTransform {
   transform(list: any[], value: string) {
 
 
-    return value ? list.filter(item => item.text.toLowerCase().includes(value.toLowerCase())) : list;
+    return value ? list.filter(item => item.name.toLowerCase().includes(value.toLowerCase())) : list;
   }
 
 }

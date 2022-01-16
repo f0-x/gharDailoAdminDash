@@ -47,9 +47,9 @@ export class LoginComponent implements OnInit {
       .login(email, password)
       .pipe(
         this.toast.observe({
-          success: "Autentificare cu succes",
-          loading: "Autentificare in curs...",
-          error: "Datele introduse sunt incorecte",
+          success: "Successfully logged in :)",
+          loading: "Authentication in process...",
+          error: "Please check your credentials :(",
         })
       )
       .subscribe(() => {

@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
     }
 
     editUserFromFirebase(user: User) {
-      this.userService.editUserFromFirebBase(user);
+      this.userService.editUserFromFirebase(user);
     }
 
     enterEditMode(id: string) {
