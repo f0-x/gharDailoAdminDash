@@ -47,16 +47,16 @@ export class UserService{
     //           );
     
     // Gets the new balance of the user and updates the result to the firebase (OldB - NewB)
-    updateUserFromFirebase(user:User,newUser: User) {
+/*     updateUserFromFirebase(user:User,newUser: User) {
       
       const userDocRef = doc(this.firestore, `users/${user.id}`);
       return updateDoc(userDocRef, { balance: user.balance - newUser.balance});
-    }
+    } */
     
     //////////////////////////////////////////////////////////////////////////////////////  
     editUserFromFirebase(user:User) {
       const userDocRef = doc(this.firestore, `users/${user.id}`);
-      return updateDoc(userDocRef, { status:user.status,role: user.role, balance: user.balance})
+      return updateDoc(userDocRef, { role: user.role, balance: user.balance, name: user.name, email: user.email})
     }
     
 }

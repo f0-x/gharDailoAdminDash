@@ -49,6 +49,7 @@ export class UserComponent implements OnInit {
     }
 
     enterEditMode(id: string) {
+      console.log(id);
       this.editId = id;
       this.editMode = true;
     }
@@ -58,6 +59,7 @@ export class UserComponent implements OnInit {
     }
 
     exitEditMode(user: User): void {
+      console.log(user);
       this.editUserFromFirebase(user);
       this.editMode = false;
     }
