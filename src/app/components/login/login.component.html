@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="form-container mat-elevation-z5">
+  <h1>Admin Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        type="email"
+      />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email is compulsary!
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Email is incorrect !
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Please enter your password!
+      </mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </div>
+    <div class="center margin-top">
+      <p><strong>email:</strong> test@test.com</p>
+    </div>
+
+    <div class="center">
+      <p><strong>password:</strong>test1234</p>
+    </div>
+  </form>
+</div>

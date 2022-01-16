@@ -1,0 +1,40 @@
+<p>
+  <ngb-alert  *ngIf="alertSuccess" type="success" [dismissible]=false ><strong>User successfully added !</strong></ngb-alert>
+  <ngb-alert  *ngIf="alertFailed" type="danger" [dismissible]=false ><strong>Please recheck your form inputs</strong></ngb-alert>
+</p>
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+
+  <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Username</mat-label>
+        <input matInput formControlName="name" placeholder="eg: John Shrestha">
+        <mat-error>Username is Compulsary!</mat-error>
+      </mat-form-field>
+      </p><p>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="ex: johnshrestha123@gmail.com">
+        <mat-error>Please check your email again!</mat-error>
+      </mat-form-field></p><p>
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="role" placeholder="Vendor/Customer/Rider">
+        <mat-error>Please pick a correct role!</mat-error>
+      </mat-form-field><p>
+      <mat-form-field appearance="outline">
+        <mat-label>Balance</mat-label>
+        <input matInput formControlName="balance" placeholder="Inventory Balance">
+        <mat-error>Enter the accurate balance amount!</mat-error>
+      </mat-form-field>
+    </p>
+ 
+  </div>
+  <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+  <p>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!addUserForm.valid">Add User</button>
+</p>
+</div>
+</form>

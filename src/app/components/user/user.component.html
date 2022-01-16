@@ -1,1 +1,50 @@
-<p>user works!</p>
+<div class="container mat-elevation-z5">
+
+
+  <app-add-user (onAddUser)="addUserToFirebase($event)"></app-add-user>
+  <mat-divider></mat-divider>
+  <form class="form-group margin-top">
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input matInput [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" placeholder="ex: John Doe">
+      </mat-form-field>
+    </p>
+    <p>
+  </form>
+
+  <table class="table table-striped table-bordered mat-elevation-z5">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Balance</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | userSearch: userName">
+        <td *ngIf="!editMode || !compareId(user.id,editId)">{{user?.name | uppercase}}</td>
+        <td *ngIf="editMode && compareId(user.id,editId)"><input class="green" matInput  type="text" [(ngModel)]="user.name"></td>
+        <td *ngIf="!editMode || !compareId(user.id,editId)">{{user?.email}}</td>
+        <td *ngIf="editMode && compareId(user.id,editId)"><input class="green" matInput  type="text" [(ngModel)]="user.email"></td>
+        <td *ngIf="!editMode || !compareId(user.id,editId)" >{{user?.role}}</td>
+        <td *ngIf="editMode && compareId(user.id,editId)"><input class="green" matInput type="text" [(ngModel)]="user.role"></td>
+        <td *ngIf="!editMode || !compareId(user.id,editId)" >{{user?.balance}}</td>
+        <td *ngIf="editMode && compareId(user.id,editId)"><input class="green" matInput size=5 type="number" [(ngModel)]="user.balance"></td>
+        <td class="saveEdit">
+          <mat-icon *ngIf="!editMode || !compareId(user.id,editId)" (click)="enterEditMode(user.id)" class="green">edit</mat-icon>
+          <mat-icon *ngIf="editMode && compareId(user.id,editId)" (click)="exitEditMode(user)" class="green">save</mat-icon>
+          <mat-icon (click)="openDialog(user)" class="red">delete</mat-icon>
+        </td>
+
+      </tr>
+      
+    </tbody>
+  </table>
+
+
+
+</div>
