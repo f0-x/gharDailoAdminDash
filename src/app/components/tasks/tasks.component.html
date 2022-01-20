@@ -1,0 +1,19 @@
+<div class="container mat-elevation-z5">
+  <h2 [ngStyle]="{color: '#3f51b5'}" >Add a Task</h2>
+  <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+  <form class="form-group margin-top">
+ 
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Search for tasks</mat-label>
+        <input matInput [(ngModel)]="taskName" [ngModelOptions]="{standalone: true}" placeholder="ex: Name of Client">
+      </mat-form-field>
+      </p><p>
+  </form>
+  <div *ngFor="let task of tasks | taskSearch: taskName" class="container mat-elevation-z5">
+
+    <a routerLink="/task/{{task?.id}}">
+      <app-task-detail [task]="task"></app-task-detail>
+    </a>
+  </div>
+</div>

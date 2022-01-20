@@ -1,0 +1,54 @@
+
+<form [formGroup]="addReportOrderForm" (ngSubmit)="onSubmit()">
+ 
+  <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Data:</mat-label>
+        <input matInput type="date" formControlName="date" placeholder="" required>
+      </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Team:</mat-label>
+          <input matInput type="text" formControlName="team" placeholder="" required>
+        </mat-form-field>
+        </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>User Assigned:</mat-label>
+              <mat-select  formControlName="materialsUsed" multiple>
+                <mat-option *ngFor="let user of users" value="{{user}}">{{user}}</mat-option>
+              </mat-select>
+              <input matInput type="select" formControlName="date" placeholder="">
+            </mat-form-field>
+            </p>
+  </div>
+  <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+
+    <angular-editor [config]="config" formControlName="description"  ></angular-editor>
+
+
+</div>
+
+ 
+
+  
+  
+  
+    <input type="button" value="Add User Balance Statistics" class="form-control" (click)="filterUsers()">
+    
+    <div fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+   <div  *ngFor="let matItem of usersFiltered">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>{{matItem.name}}</mat-label>
+        <input matInput type="number" name="{{matItem.name}}" [(ngModel)]="matItem.balance"  [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      </p>
+    
+   </div>
+  </div>
+    <button type="submit" class="form-control" [disabled]="!addReportOrderForm.valid">Save</button>
+  
+  </form>

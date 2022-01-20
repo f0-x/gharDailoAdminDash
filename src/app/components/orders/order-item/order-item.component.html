@@ -1,0 +1,58 @@
+<div *ngIf="hasRoute('/')">
+<div class="container mat-elevation-z5">
+  
+  <h2 [ngStyle]="{color: '#3f51b5'}">Orders to be assigned</h2>
+  
+  <table class="table table-bordered table-striped mat-elevation-z5">
+    <thead>
+      <tr>
+        <th scope="col">CLIENT</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">DATE</th>
+        <th scope="col">ORDER</th>
+        <th scope="col">REPORT</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders" >
+        <td >{{order?.client}}</td>
+        <td>{{order?.address}}</td>
+        <td>{{order?.date | date}} </td>
+        <td>{{order?.name}}</td>
+        <td ><a routerLink="/orders/{{order.id}}">Submit a report</a></td>
+        <td style="text-align:center"> <mat-icon (click)="openDialog(order)" [ngStyle]="{'color': 'red'}" >delete</mat-icon></td>
+          
+          
+        </tr>
+      </tbody>
+    </table>  
+    
+  </div>
+    
+</div>
+
+<div *ngIf="hasRouteDetail('/')">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">CLIENT</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">DATE</th>
+        <th scope="col">ORDER</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <td>{{orderItem?.client}}</td>
+      <td>{{orderItem?.address}}</td>
+      <td>{{orderItem?.date}}</td>
+      <td>{{orderItem?.name}}</td>
+     
+      
+  </tr>
+    </tbody>
+  </table>  
+<app-add-order-report [orderId]="orderItem?.id" (onAddReportOrder)="addReport($event)"></app-add-order-report>
+</div>

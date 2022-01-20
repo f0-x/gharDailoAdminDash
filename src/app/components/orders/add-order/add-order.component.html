@@ -1,0 +1,39 @@
+<h2 [ngStyle]="{color: '#3f51b5'}">Add an Order</h2>
+<form [formGroup]="addOrderForm" (ngSubmit)="onSubmit()" >
+
+    <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Client</mat-label>
+            <input matInput formControlName="client" placeholder="">
+            <mat-error>Please enter a valid client name</mat-error>
+          </mat-form-field>
+          </p><p>
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" placeholder="">
+            <mat-error>Please enter a valid address</mat-error>
+          </mat-form-field></p><p>
+          <mat-form-field appearance="outline">
+            <mat-label>Data of Order</mat-label>
+            <input matInput type="date" formControlName="date" placeholder="">
+            <mat-error>Please enter a valid date</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Name of Order</mat-label>
+              <input matInput type="text" formControlName="problem" placeholder="">
+              <mat-error>Please enter a valid order</mat-error>
+            </mat-form-field>
+          </p>
+     
+      </div>
+
+      <div  fxLayout="row" fxLayoutAlign="space-evenly center">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!addOrderForm.valid">Submit</button>
+  
+    </div>
+</form>

@@ -1,0 +1,68 @@
+<!-- For the page with all the projects -->
+
+<div *ngIf="hasRoute('/tasks')">
+  <div *ngIf="task">
+
+
+    <div class="row">
+
+      <div class="column">
+        <h2 [ngStyle]="{color: '#3f51b5'}">{{task?.client | uppercase}}</h2>
+        <h3 [ngStyle]="{color: '#3f51b5'}"><strong>{{task?.title | uppercase}}</strong></h3>
+        <h3>Location: {{task?.location}}</h3>
+        <h3>Status: {{task?.status}}</h3>
+        <h3>Date: {{task?.date | date}}</h3>
+      </div>
+      <div class="column">
+        <h3 [ngStyle]="{color: '#3f51b5'}"><strong>Description:</strong></h3>
+        <p [innerHTML]="task?.description"></p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<mat-divider></mat-divider>
+
+<!-- For the page with project details and raports -->
+
+<div *ngIf="hasRouteDetail('/projects')" class="container">
+
+  <div *ngIf="taskDetail">
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <h1 [ngStyle]="{color: '#3f51b5'}">{{taskDetail?.client}}</h1>
+
+
+      <h3>{{taskDetail?.title}}</h3>
+
+
+      <h3>Location: {{taskDetail?.location}}</h3>
+
+
+      <h3>Status: {{taskDetail?.status}}</h3>
+
+
+      <h3>Date: {{taskDetail?.date}}</h3>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="left">
+      <p [innerHTML]="taskDetail?.description"></p>
+    </div>
+
+
+
+  </div>
+  <mat-divider></mat-divider>
+
+  <mat-card>
+    <mat-card-title [ngStyle]="{color: '#3f51b5'}">Describe the task</mat-card-title>
+
+    <mat-card-content>
+      <app-reports [taskId]="taskDetail?.id"></app-reports>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+</div>

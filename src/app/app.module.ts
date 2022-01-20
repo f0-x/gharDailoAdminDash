@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './components/user/user.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 //Angular Material 
@@ -44,17 +43,46 @@ import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { DeleteUserComponent } from './components/user/delete-user/delete-user.component';
-import { UserSearchPipe } from './components/user/user-search.pipe'
+import { UserSearchPipe } from './components/user/user-search.pipe';
+import { OrdersComponent } from './components/orders/orders.component';
+import { AddOrderComponent } from './components/orders/add-order/add-order.component';
+import { AddOrderReportComponent } from './components/orders/add-order-report/add-order-report.component';
+import { DeleteOrderComponent } from './components/orders/delete-order/delete-order.component';
+import { OrderItemComponent } from './components/orders/order-item/order-item.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { AddTaskComponent } from './components/tasks/add-task/add-task.component';
+import { TaskDetailComponent } from './components/tasks/task-detail/task-detail.component';
+import { TaskSearchPipe } from './components/tasks/task-search.pipe';
+import { ReportsComponent } from './components/reports/reports.component';
+import { AddReportComponent } from './components/reports/add-report/add-report.component';
+import { ReportBillingComponent } from './components/reports/report-billing/report-billing.component';
+import { ReportDetailComponent } from './components/reports/report-detail/report-detail.component'
+
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
     UserComponent,
-    DashboardComponent,
     AddUserComponent,
     DeleteUserComponent,
     UserSearchPipe,
+    OrdersComponent,
+    AddOrderComponent,
+    AddOrderReportComponent,
+    DeleteOrderComponent,
+    OrderItemComponent,
+    TasksComponent,
+    AddTaskComponent,
+    TaskDetailComponent,
+    TaskSearchPipe,
+    ReportsComponent,
+    AddReportComponent,
+    ReportBillingComponent,
+    ReportDetailComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +117,7 @@ import { UserSearchPipe } from './components/user/user-search.pipe'
     NgbModule,
     HotToastModule.forRoot(),
     FlexLayoutModule,
+    AngularEditorModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

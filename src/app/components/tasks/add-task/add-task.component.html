@@ -1,0 +1,87 @@
+<form [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Title of the Task</mat-label>
+        <input matInput formControlName="title" placeholder="">
+        <mat-error>Please enter a valid task title</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Client</mat-label>
+        <input matInput formControlName="client" placeholder="">
+        <mat-error>Please enter a valid client's name</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" placeholder="">
+        <mat-error>Location is compulsary</mat-error>
+      </mat-form-field>
+    </p>
+
+
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input matInput type="date" formControlName="date" placeholder="">
+        <mat-error>Date must be entered</mat-error>
+
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let type of statusType" value="{{type}}">
+            {{type}}
+          </mat-option>
+
+        </mat-select>
+        <mat-error>Status of the task is compulsary</mat-error>
+      </mat-form-field>
+    </p>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+    <h3>Description</h3>
+
+
+
+
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+
+
+
+    <angular-editor [config]="config" formControlName="description"></angular-editor>
+
+
+
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="space-evenly center">
+    <button style="margin-top:20px;" type="submit" mat-raised-button color="primary" [disabled]="!addTaskForm.valid">Save</button>
+
+
+
+  </div>
+
+
+
+
+</form>
+<br><br>
+<mat-divider></mat-divider>
+<br><br>

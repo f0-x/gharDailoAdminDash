@@ -1,10 +1,7 @@
-<section>
-    <button mat-raised-button color="primary" routerLink="/login">
-        <mat-icon>login</mat-icon>
-        <span>Login</span>
-    </button>
-    <button mat-raised-button color="primary" (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        <span>Log out</span>
-    </button>
-</section>
+<div class="container mat-elevation-z5">
+    <app-orders></app-orders>
+</div>
+
+<app-order-item [orders]=orders></app-order-item>
+
+<app-report-billing></app-report-billing>

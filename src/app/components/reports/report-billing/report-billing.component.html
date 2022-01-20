@@ -1,0 +1,40 @@
+
+<div class="container mat-elevation-z5">
+
+    <h2 [ngStyle]="{color: '#3f51b5'}" >Recent billings and orders</h2>
+    <div *ngIf="reportDetail" >
+
+        <div *ngFor="let reportDetail of reportDetail">
+            <div *ngIf="!reportDetail.bill">
+                <mat-accordion class="example-headers-align">   
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                               <p>{{reportDetail?.taskAndClient | uppercase}}</p>
+                            
+                              
+                            </mat-panel-title>
+                           
+                           
+                            <mat-panel-description>
+                                <span><em>{{reportDetail?.date | date}}</em></span>
+                          
+                            </mat-panel-description>
+                            
+                        </mat-expansion-panel-header>
+                        <strong>Description</strong>
+                        <p innerHTML="{{reportDetail?.description}}"></p>
+                        <strong>Users associated</strong>
+                        <ul>
+                            <li *ngFor="let user of reportDetail?.userBalance">{{user.name}} : {{user.balance}}</li>
+                          </ul>
+                          <mat-action-row>
+                            <button mat-button color="primary" (click)="markAsFinished(reportDetail)">Mark as Finished</button>
+                          </mat-action-row>
+                    </mat-expansion-panel>
+            <mat-divider></mat-divider>
+        
+
+
+    
+
