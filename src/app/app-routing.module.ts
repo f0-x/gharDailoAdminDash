@@ -11,6 +11,7 @@ import { UserComponent } from './components/user/user.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
@@ -18,7 +19,6 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'orders/:id', component: OrderItemComponent, canActivate: [AuthGuard] },
   { path: 'billing', component: ReportBillingComponent, canActivate: [AuthGuard] },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
