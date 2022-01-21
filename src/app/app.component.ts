@@ -8,7 +8,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'firebase-dashboard';
+  title = 'GharDailo Admin Portal';
 
     constructor(public authService: AuthService, private router: Router) {
 

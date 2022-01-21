@@ -4,7 +4,7 @@ export interface Report {
     taskAndClient?: string;
     date: string;
     team: string;
-    userAssigned: string;
+    usersAssigned: string;
     description: string;
     taskId?: string;
     orderId?: string;

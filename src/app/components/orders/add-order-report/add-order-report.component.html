@@ -16,9 +16,9 @@
         </p>
           <p>
             <mat-form-field appearance="outline">
-              <mat-label>User Assigned:</mat-label>
-              <mat-select  formControlName="materialsUsed" multiple>
-                <mat-option *ngFor="let user of users" value="{{user}}">{{user}}</mat-option>
+              <mat-label>Users Assigned:</mat-label>
+              <mat-select  formControlName="usersAssigned" multiple>
+                <mat-option *ngFor="let user of users" value="{{user}}"> {{user}} </mat-option>
               </mat-select>
               <input matInput type="select" formControlName="date" placeholder="">
             </mat-form-field>

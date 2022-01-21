@@ -68,7 +68,7 @@ export class AddReportComponent implements OnInit {
       taskAndClient: this.taskClient,
       date: this.addReportForm.value.date,
       team: this.addReportForm.value.team,
-      userAssigned: this.addReportForm.value.userAssigned,
+      usersAssigned: this.addReportForm.value.usersAssigned,
       userBalance: this.usersFiltered,
       description: this.addReportForm.value.description,
       taskId: this.taskId,
@@ -134,7 +134,7 @@ export class AddReportComponent implements OnInit {
       return { ...obj};
     });
     this.usersParsed.forEach((user)=> {
-      if(this.addReportForm.value.userAssigned.includes(user.name)) {
+      if(this.addReportForm.value.usersAssigned.includes(user.name)) {
         this.usersFiltered.push(user);
       }
     });

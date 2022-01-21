@@ -64,7 +64,7 @@ export class AddOrderReportComponent implements OnInit {
       taskAndClient: this.taskClient,
       date: this.addReportOrderForm.value.date,
       team: this.addReportOrderForm.value.team,
-      userAssigned: this.addReportOrderForm.value.usersAssigned,
+      usersAssigned: this.addReportOrderForm.value.usersAssigned,
       usersBalance: this.usersFiltered,
       description: this.addReportOrderForm.value.description,
       orderId: this.orderId,
