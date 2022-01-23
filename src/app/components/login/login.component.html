@@ -29,15 +29,66 @@
         Please enter your password!
       </mat-error>
     </mat-form-field>
+
     <div class="center margin-top">
-      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="primary" type="submit" id="login-button">Login</button>
     </div>
+
+
     <div class="center margin-top">
-      <p><strong>email:</strong> test@test.com</p>
+      <p><strong>Email:</strong> test@test.com</p>
     </div>
 
     <div class="center">
-      <p><strong>password:</strong>test1234</p>
+      <p><strong>Password:</strong>test1234</p>
     </div>
-  </form>
+    
+    <div class="center margin-top">
+      <button class="btn btn-primary btn-block phone" (click)="togglePhoneSignIn()">
+        <i class="fas fa-phone"></i> Login with Phone
+      </button>
+    </div>
+
+    </form>
+
+    <div class="center">
+      <p><strong>PhoneNumber: </strong>+977123456</p>
+      <p><strong>Code: </strong>123456</p>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="phoneNumber">Enter Phone Number</mat-label>
+
+      <input
+        matInput
+        placeholder="Phone Number"
+        formControlName="phoneNumber"
+        type="text"
+        [(ngModel)]="phoneNumber"
+      />
+    </mat-form-field>
+
+    <div id="recaptcha-container"></div>
+    <div class="center margin-top">
+      <button mat-raised-button color="primary" >Get OTP Code</button>
+      </div>
+
+      <hr>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="otp">Enter OTP Code</mat-label>
+
+      <input
+        matInput
+        placeholder="OTP Code"
+        formControlName="otp"
+        type="text"
+        [(ngModel)]="otp"
+      />
+    </mat-form-field>
+    <div class="center margin-top">
+      <button class="btn btn-primary btn-block" (click)="togglePhoneSignIn()">
+        Cancel
+      </button>
+    </div>
 </div>
