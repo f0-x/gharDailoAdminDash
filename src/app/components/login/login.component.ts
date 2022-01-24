@@ -8,6 +8,8 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { Firestore } from '@angular/fire/firestore';
 import { getAuth, RecaptchaVerifier } from 'firebase/auth';
 import { signInWithPhoneNumber } from 'firebase/auth';
+import { LoginUiService } from 'src/app/services/login-ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
   reCaptchaVerifier: any;
   phoneNumber!: string;
   otp!: string;
-  phoneSignIn: boolean = false;
+  showPhoneSignIn: boolean = false;
+  subscription!: Subscription;
 
   loginForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -28,8 +31,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private toast: HotToastService
-  ) {}
+    private toast: HotToastService,
+    private loginUiService: LoginUiService
+  ) {
+    this.subscription = this.loginUiService
+    .onToggle()
+    .subscribe(value => (this.showPhoneSignIn = value));
+  }
 
   ngOnInit(): void {}
 
@@ -42,17 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   togglePhoneSignIn() {
-    this.phoneSignIn = !this.phoneSignIn;
-  }
-
-
-  getOTP() {
-    const auth = getAuth();
-    this.reCaptchaVerifier = new RecaptchaVerifier('login-button', {'size': 'invisible'}, auth);
-
-    signInWithPhoneNumber(auth, this.phoneNumber, this.reCaptchaVerifier);
-
-
+    this.loginUiService.togglePhoneSignIn();
   }
 
   submit() {

@@ -1,0 +1,11 @@
+.otp{
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em;
+  padding-top: 20%;
+  position: relative;
+}
+button{
+  left: 30%;
+  position: absolute;
+}

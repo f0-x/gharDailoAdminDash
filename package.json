@@ -33,6 +33,8 @@
     "@ngneat/overview": "^3.0.0",
     "bootstrap": "^4.6.0",
     "firebase": "^9.4.0",
+    "firebaseui-angular": "^6.1.0",
+    "ng-otp-input": "^1.8.1",
     "rxfire": "^6.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",

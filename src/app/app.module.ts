@@ -60,6 +60,29 @@ import { ReportDetailComponent } from './components/reports/report-detail/report
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
+import { ButtonComponent } from './components/shared/button/button.component';
+
+import { WindowService } from './services/window.service';
+import { PhoneLoginComponent } from './components/phone-login/phone-login.component';
+
+import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular'
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { OtpComponent } from './components/phone-login/otp/otp.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { PhoneAuthProvider } from 'firebase/auth';
+
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+    signInFlow: 'popup',
+    signInOptions: [
+        firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    ],
+    //term of service
+    tosUrl: '<your-tos-link>',
+    //privacy url
+    privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+    //credentialHelper:             firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +106,9 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
     ReportBillingComponent,
     ReportDetailComponent,
     SidebarComponent,
+    ButtonComponent,
+    PhoneLoginComponent,
+    OtpComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,10 +143,13 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
     NgbModule,
     HotToastModule.forRoot(),
     FlexLayoutModule,
-    AngularEditorModule
+    AngularEditorModule,
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    NgOtpInputModule,
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    ScreenTrackingService,UserTrackingService, WindowService,
   ],
   bootstrap: [AppComponent]
 })

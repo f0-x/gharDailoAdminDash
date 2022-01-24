@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'GharDailo Admin Portal';
 
-    constructor(public authService: AuthService, private router: Router) {
+    constructor(public authService: AuthService, private router: Router,
+                private afAuth: AngularFireAuth) {
 
   }
 
